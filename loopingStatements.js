@@ -11,3 +11,24 @@ for (var a in array) {
 for (var a of array) {
     console.log(a);
 }
+
+// foreach
+// first parameter is element , next index
+array=[10,20,30]
+array.forEach((element,ind,i)=>{
+console.log("element is",element,"and it's index is ",ind,i)
+})
+
+
+obj1={
+    "firstname" : "ajay",
+    "lastname" : "kumar"
+}
+// console.log(obj1);
+// obj1.forEach((key,value)=>{
+//     console.log(key,value);
+// }
+// )
+for (const {key,value} of obj1) {
+    console.log(key,value);
+}
