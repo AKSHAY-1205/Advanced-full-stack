@@ -3,7 +3,13 @@ import Home from './Components/FunctionalComponent/Home';
 import Gallery from './Components/FunctionalComponent/Gallery';
 import Contact from './Components/FunctionalComponent/Contact';
 import NavBar from './Components/FunctionalComponent/NavBar';
+import Footer from './Components/FunctionalComponent/Footer';
+import UseEffect from './Components/FunctionalComponent/UseEffect';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
+import UseRef from './Components/FunctionalComponent/UseRef';
+import ExamResults from './Components/FunctionalComponent/UseContext';
+import UseMemo from './Components/FunctionalComponent/UseMemo';
+// import UseRefNumber from './Components/FunctionalComponent/UseRefNumber';
 
 function App() {
   return (
@@ -15,7 +21,13 @@ function App() {
     <Route path='/about' element = {<About college = "Kongu Engineering" clg1 ="Kongu Arts" clg2 ="Kongu Naturopathy"/>}/>
     <Route path='/gallery' element = {<Gallery />}/>
     <Route path='/contact' element = {<Contact />}/>
+    <Route path='/useeffect' element = {<UseEffect />}/>
+    <Route path='/useref' element = {<UseRef />}/>
+    <Route path='/usecontext' element = {<ExamResults />}/>
+    <Route path='/usememo' element = {<UseMemo />}/>
+    {/* <Route path='/useref' element = {<UseRefNumber />}/> */}
     </Routes>
+    <Footer />
     </BrowserRouter>
       {/* <Home />
       <Gallery />
@@ -24,5 +36,4 @@ function App() {
     </div>
   )
 }
-
 export default App

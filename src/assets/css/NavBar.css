@@ -7,17 +7,26 @@ ul {
     background-color: chocolate;
     color: aliceblue;
     padding: 10px;
-  }
+}
   
-  .link {
+.link {
     cursor: pointer;
     padding: 3px;
     border-radius: 10px;
     text-decoration: none;
     color: aliceblue;
-  }
+}
   
-  .link:hover {
-      background-color: white;
-      color: chocolate;
-    }
+.link:hover {
+    background-color: rgb(7, 6, 6);
+    color: rgb(210, 210, 30);
+}
+
+.Footer {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    text-align: justify;
+    background-color: rgb(162, 14, 152);
+}
+
