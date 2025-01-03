@@ -2,6 +2,7 @@ import "../../assets/css/NavBar.css"
 
 var Footer = () =>{
     return (
+        <section style={{padding:5}}>
         <div className="Footer">
         <div>
             <h3>Learn React</h3>
@@ -40,6 +41,7 @@ var Footer = () =>{
             <p className="link">Location</p>
         </div>
         </div>
+        </section>
     )
 
 }

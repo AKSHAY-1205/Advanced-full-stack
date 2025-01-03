@@ -9,7 +9,8 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import UseRef from './Components/FunctionalComponent/UseRef';
 import ExamResults from './Components/FunctionalComponent/UseContext';
 import UseMemo from './Components/FunctionalComponent/UseMemo';
-// import UseRefNumber from './Components/FunctionalComponent/UseRefNumber';
+import UseRefNumber from './Components/FunctionalComponent/UseRefNumber';
+import UseEffectImages from './Components/FunctionalComponent/UseEffectImages';
 
 function App() {
   return (
@@ -25,7 +26,8 @@ function App() {
     <Route path='/useref' element = {<UseRef />}/>
     <Route path='/usecontext' element = {<ExamResults />}/>
     <Route path='/usememo' element = {<UseMemo />}/>
-    {/* <Route path='/useref' element = {<UseRefNumber />}/> */}
+    <Route path='/userefnumber' element = {<UseRefNumber />}/>
+    <Route path='/useeffectimages' element = {<UseEffectImages />}/>
     </Routes>
     <Footer />
     </BrowserRouter>
