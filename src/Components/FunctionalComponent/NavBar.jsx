@@ -16,6 +16,8 @@ var NavBar = () =>{
                     <li><Link to="/userefnumber" className='link'>UseRefNumber</Link></li>
                     <li><Link to="/useeffectimages" className='link'>UseEffectImages</Link></li>
                     <li><Link to="/contact" className='link'>Contact</Link></li>
+                    <li><Link to="/login" className='link'>Login</Link></li>
+                    <li><Link to="/signup" className='link'>Signup</Link></li>
                 </ul>
             </nav>
         </header>

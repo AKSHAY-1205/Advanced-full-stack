@@ -11,6 +11,8 @@ import ExamResults from './Components/FunctionalComponent/UseContext';
 import UseMemo from './Components/FunctionalComponent/UseMemo';
 import UseRefNumber from './Components/FunctionalComponent/UseRefNumber';
 import UseEffectImages from './Components/FunctionalComponent/UseEffectImages';
+import Login from './Components/FunctionalComponent/Login';
+import Signup from './Components/FunctionalComponent/Signup';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
     <Route path='/usememo' element = {<UseMemo />}/>
     <Route path='/userefnumber' element = {<UseRefNumber />}/>
     <Route path='/useeffectimages' element = {<UseEffectImages />}/>
+    <Route path= '/login' element = {<Login/>}/>
+    <Route path = '/signup' element = {<Signup/>}/>
     </Routes>
     <Footer />
     </BrowserRouter>
