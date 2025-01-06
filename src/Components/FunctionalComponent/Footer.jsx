@@ -1,48 +1,87 @@
-import "../../assets/css/NavBar.css"
+import { useState } from "react";
+import axios from "axios";
+import "../../assets/css/NavBar.css";
 
-var Footer = () =>{
+const Footer = () => {
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [feedback, setFeedback] = useState("");
+    const [message, setMessage] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setMessage("");
+
+        try {
+            const response = await axios.post("http://localhost:3000/feedback", {
+                name,
+                email,
+                feedback,
+            });
+
+            if (response.status === 201) {
+                setMessage("Feedback submitted successfully!");
+                setName("");
+                setEmail("");
+                setFeedback("");
+            }
+        } catch (error) {
+            console.error("Error submitting feedback:", error);
+            setMessage("Error submitting feedback. Please try again later.");
+        }
+    };
+
     return (
-        <section style={{padding:5}}>
-        <div className="Footer">
-        <div>
-            <h3>Learn React</h3>
-            <p className="link">React</p>
-            <p className="link">Basics</p>
-            <p className="link">Components</p>
-        </div>
-
-        <div>
-            <h3>FullStack</h3>
-            <p className="link">Explore</p>
-            <p className="link">Advanced JavaScript</p>
-            <p className="link">FullStack</p>
-            <p className="link">React Demo</p>
-        </div>
-
-        <div>
-            <h3>References</h3>
-            <p className="link">Video Tutorial</p>
-            <p className="link">JavaScript</p>
-            <p className="link">React Installation</p>
-        </div>
-
-        <div>
-            <h3>Components</h3>
-            <p className="link">Node JS</p>
-            <p className="link">Visual Studio</p>
-            <p className="link">Vite-React</p>
-            <p className="link">Sources</p>
-        </div>
-
-        <div>
-            <h3>More</h3>
-            <p className="link">Contact</p>
-            <p className="link">Support</p>
-            <p className="link">Location</p>
-        </div>
-        </div>
+        <section style={{ padding: 20 }}>
+            <div className="Footer">
+                <div className="feedback-container">
+                    <h3>We Value Your Feedback</h3>
+                    <form className="feedback-form" onSubmit={handleSubmit}>
+                        <div className="form-group">
+                            <label htmlFor="name">Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                placeholder="Enter your name"
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                placeholder="Enter your email"
+                                required
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="feedback">Feedback:</label>
+                            <textarea
+                                id="feedback"
+                                name="feedback"
+                                value={feedback}
+                                onChange={(e) => setFeedback(e.target.value)}
+                                rows="4"
+                                placeholder="Share your thoughts"
+                                required
+                            ></textarea>
+                        </div>
+                        <button type="submit" className="submit-btn">
+                            Submit Feedback
+                        </button>
+                    </form>
+                    {message && <p className="message">{message}</p>}
+                </div>
+            </div>
         </section>
-    )
+    );
+};
 
-}
 export default Footer;
