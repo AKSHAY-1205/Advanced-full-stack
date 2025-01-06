@@ -4,6 +4,7 @@ var app = express();
 var env = require('dotenv');
 var mdb = require("mongoose");
 var User = require("./models/users");
+var Feedback = require("./models/feedback");
 var cors = require("cors");
 
 const PORT = 3000;
@@ -20,16 +21,28 @@ mdb
   .catch((err) => {
     console.log(err);
   });
+
+
+
 app.get("/", (req, res) => {
   res.send("Welcome to Backend Server");
 });
+
+
+
 app.get("/json", (req, res) => {
   res.json({ server: "Welcome to Backend ", url: "localhost", port: "PORT" });
 });
+
+
+
 app.get("/static", (req, res) => {
   console.log("Running");
   res.sendFile(path.join(__dirname, "index.html"));
 });
+
+
+
 app.post("/signup", (req, res) => {
   try {
     var newUser = new User(req.body).save();
@@ -39,6 +52,9 @@ app.post("/signup", (req, res) => {
     console.log(err);
   }
 });
+
+
+
 app.get("/getsignup", async (req, res) => {
   try {
     var allSignupRecords = await User.find();
@@ -50,6 +66,9 @@ app.get("/getsignup", async (req, res) => {
     res.send(err);
   }
 });
+
+
+
 app.post("/login", async (req, res) => {
   var { email, password } = req.body;
   try {
@@ -68,6 +87,33 @@ app.post("/login", async (req, res) => {
     console.log("Some error");
   }
 });
+
+
+
+app.post("/feedback", async (req, res) => {
+  const { name, email, feedback } = req.body;
+  try {
+    const newFeedback = new Feedback({ name, email, feedback });
+    await newFeedback.save();
+    res.status(201).json({ message: "Feedback submitted successfully" });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error submitting feedback", error: err });
+  }
+});
+
+
+app.get("/feedback", async (req, res) => {
+  try {
+    const allFeedback = await Feedback.find();
+    res.status(200).json(allFeedback);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Error retrieving feedback", error: err });
+  }
+});
+
+
 app.listen(PORT, () => {
   console.log(`Backend Server Running... \nUrl:http://localhost:${PORT}`);
 });
