@@ -13,7 +13,7 @@ const Gallery = () =>{
         textAlign: "center",
     }
     return(
-        <section>
+        <section style={{padding:5}}>
             <h1>This is Gallery Page</h1>
             <h2 style={styling}>Learning State Concept</h2>
             <h3>The State of vairable counter is {counter}</h3>

@@ -26,7 +26,7 @@ var UseEffect = () => {
             .catch((err) => console.log(err))
     }, []);
     return (
-        <section>
+        <section style={{padding:5}}>
             <h1>Fetching Data from json Placeholder API </h1>
             <h2>Posts are</h2>
             {/* <ul>

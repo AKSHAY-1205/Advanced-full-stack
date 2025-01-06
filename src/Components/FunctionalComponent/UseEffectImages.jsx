@@ -14,7 +14,7 @@ const UseEffectImages = () => {
   }, [pics]);
 
   return (
-    <section>
+    <section style={{padding:5}}>
       <h1>Images obtained from API using UseEffect</h1>
       {pics.map((element)=>{
         return <img key={element.id} src={element.url} width={40} height={40}></img>

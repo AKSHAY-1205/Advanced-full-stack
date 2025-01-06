@@ -5,7 +5,7 @@ const About = (props) =>{
         textAlign: "center",
     }
     return(
-        <section>
+        <section style={{padding:5}}>
             <h1>This is About Page</h1>
             <h2 style={styling}>Learning Props</h2>
             {/*eslint-disable-next-line react/prop-types*/}
