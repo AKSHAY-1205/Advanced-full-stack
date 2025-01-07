@@ -13,7 +13,7 @@ const Footer = () => {
         setMessage("");
 
         try {
-            const response = await axios.post("http://localhost:3000/feedback", {
+            const response = await axios.post("https://full-stack-backend-n113.onrender.com/feedback", {
                 name,
                 email,
                 feedback,

@@ -13,7 +13,7 @@ var SignUp = () => {
 
   var signup = async (event) => {
     event.preventDefault();
-    var req = axios.post("http://localhost:3000/signup", {
+    var req = axios.post("https://full-stack-backend-n113.onrender.com/signup", {
       firstName: FName,
       lastName: LName,
       email: email,
